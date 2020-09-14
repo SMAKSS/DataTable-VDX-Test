@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import LocalContext from '../contexts/LocalContext';
+import LocalContext from './LocalContext';
 
 function LocalProvider(props) {
   const local = useState({ local: 'en' });

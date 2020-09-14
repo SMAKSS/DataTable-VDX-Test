@@ -29,8 +29,8 @@ function AddNewRecord() {
         id='name'
         label={titles[titlesLocal.local].firstName}
         onChange={(e) => {
-          e.persist();
-          setState((prev) => ({ ...prev, name: e.target.value }));
+          const target = e.target;
+          setState((prev) => ({ ...prev, name: target.value }));
         }}
       />
       <Input
@@ -39,8 +39,8 @@ function AddNewRecord() {
         id='surname'
         label={titles[titlesLocal.local].lastName}
         onChange={(e) => {
-          e.persist();
-          setState((prev) => ({ ...prev, surname: e.target.value }));
+          const target = e.target;
+          setState((prev) => ({ ...prev, surname: target.value }));
         }}
       />
       <Input
@@ -49,8 +49,8 @@ function AddNewRecord() {
         id='superhero'
         label={titles[titlesLocal.local].superHeroName}
         onChange={(e) => {
-          e.persist();
-          setState((prev) => ({ ...prev, superhero: e.target.value }));
+          const target = e.target;
+          setState((prev) => ({ ...prev, superhero: target.value }));
         }}
       />
       <Input
@@ -60,8 +60,8 @@ function AddNewRecord() {
         id='email'
         label={titles[titlesLocal.local].email}
         onChange={(e) => {
-          e.persist();
-          setState((prev) => ({ ...prev, email: e.target.value }));
+          const target = e.target;
+          setState((prev) => ({ ...prev, email: target.value }));
         }}
       />
       <Select
@@ -76,8 +76,8 @@ function AddNewRecord() {
           { key: 'none', value: 'Do not want to indicate' }
         ]}
         onChange={(e) => {
-          e.persist();
-          setState((prev) => ({ ...prev, gender: e.target.value }));
+          const target = e.target;
+          setState((prev) => ({ ...prev, gender: target.value }));
         }}
       />
       <Input
@@ -88,8 +88,8 @@ function AddNewRecord() {
         label={titles[titlesLocal.local].birthdate}
         max={new Date(new Date().getTime()).toISOString().split('T')[0]}
         onChange={(e) => {
-          e.persist();
-          setState((prev) => ({ ...prev, age: e.target.value }));
+          const target = e.target;
+          setState((prev) => ({ ...prev, age: target.value }));
         }}
       />
     </>

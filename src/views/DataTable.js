@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
+import SelectRowContext from '../contexts/SelectRowContext';
 import Locale from '../hooks/Locale';
 import { titles } from '../localization/Dictionary';
 import Input from '../components/Input';
@@ -10,6 +11,7 @@ import firebase from '../firebase.js';
 
 function DataTable() {
   const { local } = Locale(titles);
+  const [selectedRows] = useContext(SelectRowContext);
   const [state, setState] = useState([]);
 
   useEffect(() => {
@@ -32,11 +34,19 @@ function DataTable() {
     });
   }, []);
 
+  function deleteHandler(e) {
+    e.preventDefault();
+    Object.keys(selectedRows).forEach((selectedRow) => {
+      const itemRef = firebase.database().ref(`/items/${selectedRow}`);
+      itemRef.remove();
+    });
+  }
+
   return (
     <>
       <div className='top-bar'>
         <Input />
-        <Button innerText='Delete' />
+        <Button innerText='Delete' onClick={(e) => deleteHandler(e)} />
         <Button innerText='Add New Record' />
       </div>
       <Table

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
+import SelectRowContext from '../contexts/SelectRowContext';
 import UUID from '../utils/UUID';
+import Input from './Input';
 
 function Table({ headers = [], rows = [] }) {
+  const [selectedRows, setSelectedRows] = useContext(SelectRowContext);
+
   return (
     <table>
       <thead>
@@ -15,7 +19,35 @@ function Table({ headers = [], rows = [] }) {
       <tbody>
         {rows.map((row, index) => (
           <tr key={UUID()}>
-            <td>{index + 1}</td>
+            <td>
+              <div>
+                <Input
+                  type='checkbox'
+                  name={row.id}
+                  id={row.id}
+                  checked={selectedRows[row.id]}
+                  onChange={(e) => {
+                    const target = e.target;
+                    if (target.checked) {
+                      setSelectedRows((prev) => ({
+                        ...prev,
+                        [target.name]: target.checked
+                      }));
+                    } else {
+                      setSelectedRows((prev) => {
+                        const index = Object.keys(prev).indexOf(target.name);
+                        if (index !== -1) {
+                          delete prev[target.name];
+                          target.checked = false;
+                        }
+                        return { ...prev };
+                      });
+                    }
+                  }}
+                />
+                <span>{index + 1}</span>
+              </div>
+            </td>
             <td>{row.name}</td>
             <td>{row.surname}</td>
             <td>{row.superhero}</td>
