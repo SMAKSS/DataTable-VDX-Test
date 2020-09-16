@@ -1,0 +1,59 @@
+@import '../assets/variables';
+@import '../assets/mixins';
+
+.top-bar {
+  @include flex-display(center, space-between, row);
+}
+
+.top-bar .form-group {
+  margin: 0;
+}
+
+.top-bar .form-group input {
+  height: 2rem;
+  padding-left: 3rem;
+}
+
+.top-bar .form-group .icon {
+  width: 1.3rem;
+
+  top: 29%;
+  left: 3%;
+}
+
+.top-bar .button-container button {
+  margin-left: 1rem;
+  border-radius: 2rem;
+}
+
+@media (max-width: 767px) {
+  .top-bar {
+    flex-direction: column;
+  }
+
+  .top-bar > div {
+    width: 100%;
+  }
+
+  .top-bar > div:first-child {
+    margin-bottom: 1rem;
+  }
+
+  .top-bar .button-container {
+    @include flex-display(center, space-between, row);
+  }
+
+  .top-bar .button-container button {
+    margin: 0;
+    width: 100%;
+    border-radius: 0.25rem;
+  }
+
+  .top-bar .button-container button:first-child {
+    margin-right: 0.5rem;
+  }
+
+  .top-bar .button-container button:last-child {
+    margin-left: 0.5rem;
+  }
+}

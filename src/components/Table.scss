@@ -1,0 +1,51 @@
+@import '../assets/variables';
+@import '../assets/mixins';
+
+thead {
+  font: 500 1.2rem/3 $font;
+  color: $background;
+  background: $secondary-main;
+}
+
+thead th {
+  @include unselectable();
+  min-width: 4rem;
+}
+
+tbody {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+tbody .empty {
+  font-weight: 600;
+  line-height: 40rem;
+}
+
+tbody tr:nth-child(2n + 1) {
+  background: $footer;
+}
+
+tbody tr:nth-child(2n) {
+  background: $main-border;
+}
+
+.no-cell {
+  position: relative;
+}
+
+.no-cell .form-group {
+  margin: 1rem 0;
+}
+
+.no-cell input {
+  height: auto;
+  width: auto;
+  padding: 0;
+}
+
+.no-cell span {
+  position: absolute;
+  top: 0;
+  right: 0.3rem;
+}

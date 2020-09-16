@@ -1,0 +1,68 @@
+@import '../../assets/variables';
+@import '../../assets/mixins';
+
+$offset: 187;
+$duration: 1.4s;
+
+.custom_loader_container {
+  @include flex-display(center, center);
+  height: 100vh;
+}
+
+.spinner {
+  animation: rotator $duration linear infinite;
+  margin: 6px 0 0 0;
+}
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+.path {
+  stroke-dasharray: $offset;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+}
+
+.path-animation-stroke-white {
+  animation: dash $duration ease-in-out infinite,
+    stroke-white ($duration * 4) ease-in-out infinite;
+}
+
+.path-animation-stroke-other {
+  animation: dash $duration ease-in-out infinite,
+    stroke-other ($duration * 4) ease-in-out infinite;
+}
+
+@keyframes stroke-white {
+  0%,
+  100% {
+    stroke: $background;
+  }
+}
+
+@keyframes stroke-other {
+  0%,
+  100% {
+    stroke: $secondary-main;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: $offset;
+  }
+  50% {
+    stroke-dashoffset: $offset/4;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: $offset;
+    transform: rotate(450deg);
+  }
+}

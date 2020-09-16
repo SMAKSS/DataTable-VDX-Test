@@ -1,0 +1,21 @@
+@mixin flex-display(
+  $alignItems: initial,
+  $justifyContent: initial,
+  $flexDirection: inherit,
+  $flex: inherit
+) {
+  display: flex;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  flex-direction: $flexDirection;
+  flex: $flex;
+}
+
+@mixin unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

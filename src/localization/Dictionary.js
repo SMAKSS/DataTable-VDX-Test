@@ -7,7 +7,9 @@ const titles = {
     email: 'Email',
     gender: 'Gender',
     age: 'Age',
-    birthdate: 'Birth Date'
+    birthdate: 'Birth Date',
+    add: 'Add New Record',
+    search: 'Search in table'
   }
 };
 
@@ -21,4 +23,13 @@ const buttons = {
   }
 };
 
-export { titles, buttons };
+const messages = {
+  en: {
+    noRecord: 'No record available!',
+    addSnackBarFailed: 'Please fill all the inputs or fix the red ones!',
+    addSnackBarSuccessful: 'Record saved successfully!',
+    deleteRecords: 'Are you sure you want to delete {count} record(s)?'
+  }
+};
+
+export { titles, buttons, messages };

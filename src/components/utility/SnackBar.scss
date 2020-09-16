@@ -1,0 +1,66 @@
+@import '../../assets/variables';
+
+.snack-bar {
+  visibility: hidden;
+  min-width: 25rem;
+  border-radius: 2rem;
+  background-color: $footer;
+  color: $link;
+  text-align: center;
+  padding: 1.6rem;
+  position: fixed;
+  z-index: 1;
+  top: 1.65rem;
+  font-size: 1.5rem;
+  font-family: inherit;
+}
+
+.snack-bar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 1.65rem;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 1.65rem;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    top: 1.65rem;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    top: 1.65rem;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}

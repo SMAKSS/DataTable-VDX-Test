@@ -1,0 +1,63 @@
+@import '../../assets/variables';
+
+.form-group {
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.form-group > label {
+  font-family: $font;
+  transition: 0.2s all ease-in-out;
+  color: $hint;
+  position: absolute;
+  font-size: 1.4rem;
+  padding: 0 1rem;
+  left: 1rem;
+  top: 1.5rem;
+}
+
+.form-group > input[type='date'] ~ label {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.form-group > input:focus ~ label,
+.form-group > input:valid ~ label,
+.form-group > select:focus ~ label,
+.form-group > select:valid ~ label {
+  background-color: $background;
+  line-height: 1px;
+  overflow: visible;
+  font-size: 1.2rem;
+  opacity: 1;
+  visibility: inherit;
+  top: 0;
+}
+
+.form-group > input:not([type='checkbox']),
+.form-group > select {
+  height: 4.8rem;
+}
+
+.form-group .icon,
+.form-group .secondary-icon {
+  width: 1rem;
+
+  position: absolute;
+  top: 37%;
+}
+
+.form-group .icon {
+  left: 4.5%;
+}
+
+.form-group .secondary-icon {
+  right: 4.5%;
+}
+
+.form-group .secondary-icon.arrow {
+  position: absolute;
+  top: 30%;
+  right: 6%;
+}

@@ -1,0 +1,39 @@
+@import '../../assets/variables';
+
+.button {
+  background: $button;
+  color: $button-text;
+  border-radius: 0.25rem;
+  padding: 0 2rem;
+  transition: background 0.2s cubic-bezier(1, 0, 0, 1);
+  height: 4.6rem;
+  border: 2px solid transparent;
+  line-height: calc(4.6rem - 2px);
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 0;
+  min-width: 14rem;
+}
+
+.button:hover {
+  background: $button-hover;
+}
+
+.button .label {
+  vertical-align: middle;
+  display: inline-block;
+  white-space: nowrap;
+  font: 500 1.4rem/1 $font;
+  user-select: none;
+}
+
+.button[disabled] {
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .button .label {
+    font-size: 1.2rem;
+  }
+}
