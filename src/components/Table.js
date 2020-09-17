@@ -9,19 +9,37 @@ import './Table.scss';
 
 function Table({ headers = [], rows = [], message = 'No Record' }) {
   const { local } = Locale(titles);
-  const [state, setState] = useState(false);
+  const [state, setState] = useState({ check: false, rows: rows, odd: false });
   const [selectedRows, setSelectedRows] = useContext(SelectRowContext);
 
-  function checkAllHandler(e) {
-    setState(!state);
-    if (!state && rows.length > 0) {
+  function sortHandler(e) {
+    const target = e.target;
+    const column = target.dataset.name;
+    setState((prev) => ({
+      ...prev,
+      odd: !state.odd,
+      rows: rows.sort((a, b) =>
+        state.odd
+          ? a[column] > b[column]
+            ? 1
+            : -1
+          : a[column] > b[column]
+          ? -1
+          : 1
+      )
+    }));
+  }
+
+  function checkAllHandler() {
+    setState((prev) => ({ ...prev, check: !state.check }));
+    if (!state.check && rows.length > 0) {
       rows.forEach((row) => {
         setSelectedRows((prev) => ({
           ...prev,
           [row.id]: true
         }));
       });
-    } else if (state) {
+    } else if (state.check) {
       rows.forEach((row) => {
         setSelectedRows((prev) => {
           const index = Object.keys(prev).indexOf(row.id);
@@ -58,33 +76,43 @@ function Table({ headers = [], rows = [], message = 'No Record' }) {
       <thead>
         <tr>
           {headers.map((header, index) => (
-            <th key={UUID()}>
+            <th
+              key={UUID()}
+              data-name={header.key}
+              onClick={
+                index !== 0
+                  ? (e) => {
+                      sortHandler(e);
+                    }
+                  : null
+              }
+            >
               {index === 0 ? (
                 <div className='no-cell'>
                   <Input
                     type='checkbox'
                     title={titles[local.local].selectAll}
-                    checked={state}
-                    onChange={(e) => checkAllHandler(e)}
+                    checked={state.check}
+                    onChange={() => checkAllHandler()}
                   />
-                  <span>{header}</span>
+                  <span>{header.name}</span>
                 </div>
               ) : (
-                header
+                header.name
               )}
             </th>
           ))}
         </tr>
       </thead>
       <tbody>
-        {rows.length === 0 ? (
+        {state.rows.length === 0 ? (
           <tr>
             <td className='empty unselectable' colSpan={headers.length}>
               {message}
             </td>
           </tr>
         ) : (
-          rows.map((row, index) => (
+          state.rows.map((row, index) => (
             <tr key={UUID()}>
               <td>
                 <div className='no-cell'>

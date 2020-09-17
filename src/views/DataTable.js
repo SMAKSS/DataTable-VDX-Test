@@ -167,13 +167,13 @@ function DataTable() {
         </div>
         <Table
           headers={[
-            titles[local.local].select,
-            titles[local.local].firstName,
-            titles[local.local].lastName,
-            titles[local.local].superHeroName,
-            titles[local.local].email,
-            titles[local.local].gender,
-            titles[local.local].age
+            { name: titles[local.local].select, key: 'id' },
+            { name: titles[local.local].firstName, key: 'name' },
+            { name: titles[local.local].lastName, key: 'surname' },
+            { name: titles[local.local].superHeroName, key: 'superhero' },
+            { name: titles[local.local].email, key: 'email' },
+            { name: titles[local.local].gender, key: 'gender' },
+            { name: titles[local.local].age, key: 'age' }
           ]}
           rows={!state.searchText ? state.allData : state.filteredData}
           message={messages[messagesLocal.local].noRecord}

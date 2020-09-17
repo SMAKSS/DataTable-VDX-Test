@@ -9,6 +9,7 @@ thead {
 
 thead th {
   @include unselectable();
+  cursor: pointer;
   min-width: 4rem;
 }
 
