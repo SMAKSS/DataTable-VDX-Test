@@ -79,11 +79,12 @@ function DataTable() {
 
   const searchHandler = useCallback(() => {
     const filtered = [];
+    const regex = new RegExp(state.searchText, 'i');
     state.allData.forEach((data) => {
       for (let key in data) {
         if (
           key !== 'id' &&
-          data[key].toString().indexOf(state.searchText) !== -1 &&
+          data[key].toString().match(regex) &&
           !filtered.some((el) => el.id === data.id)
         ) {
           filtered.push(data);
@@ -100,7 +101,7 @@ function DataTable() {
 
   useEffect(() => {
     const timeOut = state.searchText
-      ? setTimeout(() => searchHandler(), 200)
+      ? setTimeout(() => searchHandler(), 300)
       : null;
     return () => clearTimeout(timeOut);
   }, [state.searchText, searchHandler]);

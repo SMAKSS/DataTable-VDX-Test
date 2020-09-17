@@ -5,6 +5,7 @@ import { background } from '../Variables';
 
 function Input({
   refference = null,
+  title = null,
   label = '',
   icon = null,
   secondaryIcon = null,
@@ -39,6 +40,7 @@ function Input({
       {icon && <span className='icon'>{icon}</span>}
       <input
         ref={refference}
+        title={title}
         placeholder={placeholder}
         id={id}
         name={name}

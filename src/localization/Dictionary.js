@@ -9,7 +9,8 @@ const titles = {
     age: 'Age',
     birthdate: 'Birth Date',
     add: 'Add New Record',
-    search: 'Search in table'
+    search: 'Search in table',
+    selectAll: 'Select All'
   }
 };
 

@@ -45,6 +45,8 @@ tbody tr:nth-child(2n) {
 }
 
 .no-cell span {
+  line-height: 1;
+
   position: absolute;
   top: 0;
   right: 0.3rem;

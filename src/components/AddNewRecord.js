@@ -19,7 +19,7 @@ function AddNewRecord() {
   const { local: messagesLocal } = Locale(messages);
   const [snackBarStatus, setSnackBarStatus] = useContext(SnackBarContext);
   // eslint-disable-next-line
-  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
   const initialState = {
     name: '',
     surname: '',
@@ -37,6 +37,7 @@ function AddNewRecord() {
 
   function hadleSubmit(e) {
     e.preventDefault();
+    const emailTest = emailRegex.test(state.email);
     const isValid = Boolean(
       state.name &&
         state.name.length > 1 &&
@@ -45,7 +46,7 @@ function AddNewRecord() {
         state.superhero &&
         state.superhero.length > 1 &&
         state.email &&
-        emailRegex.test(state.email) &&
+        emailTest &&
         state.gender &&
         state.age
     );
