@@ -1,4 +1,17 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# DataTable
+This project is a datatable with some cool features and developed for VDX.tv test. I literally did not use any library or package to develop this app and it just bootstrapped by CRA (This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).).
+
+## Features
+For data storing purposes I just used firebase real-time data store to save and read data, the API key of it is available via the the `.env` file and it's committed to the git, so everyone can access it for testing purposes. If you had any problem with it you can ask me directly via my email.
+
+I just implement the following features for this data table in this project.
+
+- You can simply add a new record into the table by add new record button
+- You can simply delete each selected record by the delete button
+- You can filter and search the whole table with the available search input in the main page
+- You can sort data both ascending and descending by clicking each column (The odd clicks will sort ascending and even ones will sort it descending)
+
+----
 
 ## Available Scripts
 
@@ -40,29 +53,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
