@@ -13,7 +13,7 @@ I just implement the following features for this data table in this project.
 
 ## Here are some screenshots
 
-<img src="public/screenShots/Table.png" width="150"/>  <img src="public/screenShots/Add.png" width="150"/> <img src="public/screenShots/Search.png" width="150"/>  <img src="public/screenShots/Delete.png" width="150"/> <img src="public/screenShots/Sort.png" width="150"/>
+<img src="public/screenshots/Table.jpg" width="150"/>  <img src="public/screenshots/Add.jpg" width="150"/> <img src="public/screenshots/Search.jpg" width="150"/>  <img src="public/screenshots/Delete.jpg" width="150"/> <img src="public/screenshots/Sort.jpg" width="150"/>
 
 ----
 
