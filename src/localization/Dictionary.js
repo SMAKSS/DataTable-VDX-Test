@@ -1,3 +1,6 @@
+/* Since I did not use localization tools like i18n 
+ I just made a simple dictionary for localization purposes */
+
 const titles = {
   en: {
     select: '#',

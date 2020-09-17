@@ -1,3 +1,5 @@
+// Here lies all the necessary css variables in case of using inline styling
+
 const font = `Google Sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
   Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-seriff`;
 const background = '#ffffff';

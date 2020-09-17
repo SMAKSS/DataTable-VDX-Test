@@ -13,6 +13,9 @@ import Clear from './icons/Clear';
 import arrowDown from '../assets/images/arrow-down.png';
 import { error } from '../components/Variables';
 
+/**
+ * This function is responsible for the add new record form and modal.
+ */
 function AddNewRecord() {
   const { local } = Locale(buttons);
   const { local: titlesLocal } = Locale(titles);
@@ -35,6 +38,11 @@ function AddNewRecord() {
   const superheroRef = useRef(null);
   const emailRef = useRef(null);
 
+  /**
+   * 
+   * @param {Object} e - event interface of the submit button
+   * This function is responsible for submitting and validating the form data and sending it to database 
+   */
   function hadleSubmit(e) {
     e.preventDefault();
     const emailTest = emailRegex.test(state.email);
@@ -64,6 +72,9 @@ function AddNewRecord() {
     }
   }
 
+  /**
+   * This useEffect is responsible for live visual validation.
+   */
   useEffect(() => {
     if (state.name && state.name.length <= 1 && nameRef.current) {
       nameRef.current.style.cssText = `border-color: ${error};`;

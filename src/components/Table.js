@@ -7,11 +7,23 @@ import { titles } from '../localization/Dictionary';
 import Locale from '../hooks/Locale';
 import './Table.scss';
 
+/**
+ *
+ * @param {Array} headers - all of the table headers
+ * @param {Array} rows - all of the table row data
+ * @param {String} message - custom message in case of no record
+ * This function is responsible for the table creation
+ */
 function Table({ headers = [], rows = [], message = 'No Record' }) {
   const { local } = Locale(titles);
   const [state, setState] = useState({ check: false, rows: rows, odd: false });
   const [selectedRows, setSelectedRows] = useContext(SelectRowContext);
 
+  /**
+   *
+   * @param {Object} e - event interface of table headers
+   * This function is responsible for sorting data by columns (odd clicks ASC, even clicks DESC)
+   */
   function sortHandler(e) {
     const target = e.target;
     const column = target.dataset.name;
@@ -30,6 +42,9 @@ function Table({ headers = [], rows = [], message = 'No Record' }) {
     }));
   }
 
+  /**
+   * This function is responsible for checking all the table rows for deleting all at once
+   */
   function checkAllHandler() {
     setState((prev) => ({ ...prev, check: !state.check }));
     if (!state.check && rows.length > 0) {
@@ -52,6 +67,11 @@ function Table({ headers = [], rows = [], message = 'No Record' }) {
     }
   }
 
+  /**
+   *
+   * @param {Object} e - event interface of input checkbox related to each row
+   * This function is responsible for check and updating selectedRow context for deleting purposes.
+   */
   function checkBoxHandler(e) {
     const target = e.target;
     if (target.checked) {

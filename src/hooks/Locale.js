@@ -1,3 +1,5 @@
+// This is a custom hook to manage localization context fallback
+
 import { useContext } from 'react';
 
 import LocalContext from '../contexts/LocalContext';

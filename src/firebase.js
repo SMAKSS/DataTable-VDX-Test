@@ -1,3 +1,5 @@
+// Here lies the firebase configs
+
 import firebase from 'firebase/app';
 import 'firebase/database';
 

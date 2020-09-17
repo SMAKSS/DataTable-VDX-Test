@@ -6,6 +6,9 @@ import SnackBarProvider from './contexts/SnackBarProvider';
 import DataTable from './views/DataTable';
 import './App.scss';
 
+/**
+ * This module is a main wrapper for whole app.
+ */
 function App() {
   return (
     <LocalProvider>

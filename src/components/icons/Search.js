@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+ * This function is responsible for search icon svg
+ */
 function Search() {
   return (
     <svg

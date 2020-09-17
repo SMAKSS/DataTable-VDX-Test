@@ -14,6 +14,9 @@ import Locale from '../hooks/Locale';
 import firebase from '../firebase.js';
 import './DataTable.scss';
 
+/**
+ * This is the main view of the app which contains all of forms, assets and tables.
+ */
 function DataTable() {
   const { local } = Locale(titles);
   const { local: buttonsLocal } = Locale(buttons);
@@ -26,6 +29,10 @@ function DataTable() {
     loading: true
   });
 
+  /**
+   * @param {Object} Date - birthday is a date format (mm-dd-yyyy) which points to the birthday of user record
+   * This function is responsible for converting date to age
+   */
   const calculateAge = useCallback((birthday) => {
     var today = new Date();
     var birthDate = new Date(birthday);
@@ -37,6 +44,9 @@ function DataTable() {
     return age;
   }, []);
 
+  /**
+   * This function is responsible for initial data read from database once the page is try to mount
+   */
   const resolveRows = useCallback(() => {
     const itemsRef = firebase.database().ref('items');
     itemsRef.on('value', (snapshot) => {
@@ -57,6 +67,12 @@ function DataTable() {
     });
   }, [calculateAge]);
 
+  /**
+   *
+   * @param {Object} e - event interface of buttons which responsible for opening the modal
+   * @param {String} modalId - a string for distinguishing the modals
+   * This function is mainly responsible for opening modals
+   */
   function modalHandler(e, modalId) {
     e.preventDefault();
     const modal = document.querySelector(`#${modalId}`);
@@ -65,6 +81,11 @@ function DataTable() {
     modal.classList.add('fade-in');
   }
 
+  /**
+   *
+   * @param {Object} e - event interface of modal delete button
+   * This function will delete all the selected records after the prompt condescending
+   */
   function deleteRecords(e) {
     e.preventDefault();
     Object.keys(selectedRows).forEach((selectedRow) => {
@@ -77,6 +98,10 @@ function DataTable() {
     modal.closest('body').style.cssText = '';
   }
 
+  /**
+   * This function is responsible for searching the table to match provided keywords by user.
+   * We just use a regex here and an i flag to avoid inconsistency between upper and lower case searches.
+   */
   const searchHandler = useCallback(() => {
     const filtered = [];
     const regex = new RegExp(state.searchText, 'i');
@@ -95,10 +120,16 @@ function DataTable() {
     setState((prev) => ({ ...prev, filteredData: filtered }));
   }, [state.allData, state.searchText]);
 
+  /**
+   * This useEffect is responsible for executing initial data load function.
+   */
   useEffect(() => {
     resolveRows();
   }, [resolveRows]);
 
+  /**
+   * This useEffect is responsible for executing a keyword search with debouncing.
+   */
   useEffect(() => {
     const timeOut = state.searchText
       ? setTimeout(() => searchHandler(), 300)
@@ -124,6 +155,10 @@ function DataTable() {
     />
   );
 
+  /**
+   * If accessing to firebase database face a problem 
+   * or being in progress the loading spinner will replace the main page.
+   */
   if (state.loading) {
     return (
       <LoadingSpinner parentDiv={true} stroke={'path-animation-stroke-other'} />

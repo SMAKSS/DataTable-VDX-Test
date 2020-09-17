@@ -5,6 +5,13 @@ import { buttons } from '../localization/Dictionary';
 import Button from './form/Button';
 import './Modal.scss';
 
+/**
+ *
+ * @param {String} id - id for distincting the modals
+ * @param {String|HTMLElement} header - header of modal
+ * @param {String|HTMLElement} body - body of modal
+ * @param {String|HTMLElement} footer - footer of modal
+ */
 function Modal({
   id = null,
   header = 'header',
@@ -12,6 +19,12 @@ function Modal({
   footer = 'footer'
 }) {
   const { local } = Locale(buttons);
+
+  /**
+   * 
+   * @param {Object} e - event interface closing items
+   * This function is responsible for closing modal either by clicking close, x, or mask area.
+   */
   function modalHandler(e) {
     e.preventDefault();
     e.stopPropagation();

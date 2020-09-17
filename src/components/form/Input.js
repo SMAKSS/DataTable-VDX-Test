@@ -3,23 +3,31 @@ import React, { useRef } from 'react';
 import './FormGroup.scss';
 import { background } from '../Variables';
 
+/**
+ *
+ * @param {Object} refference - refference of the input which uses for styling and other stuff
+ * @param {String} title - title of the input
+ * @param {String} label - label of input
+ * @param {HTMLElement} icon - main icon
+ * @param {HTMLElement} secondaryIcon - secondary icon
+ * @param {Function} secondaryIconOnClick - secondary icon handler
+ * @param {String} id - input id
+ * @param {String} type - input type
+ * @param {String} value - input value
+ * @param {Function} onChange - input onchange handler
+ * This function is responsible for Input component.
+ */
 function Input({
   refference = null,
-  title = null,
   label = '',
   icon = null,
   secondaryIcon = null,
   secondaryIconOnClick = null,
-  placeholder = null,
   id = null,
-  name = null,
   type = 'text',
   value = '',
-  checked = false,
-  minLength = null,
-  max = null,
-  required = false,
-  onChange = () => console.log('Please add onchange event!')
+  onChange = () => console.log('Please add onchange event!'),
+  ...props
 }) {
   const labelRef = useRef(null);
 
@@ -40,17 +48,11 @@ function Input({
       {icon && <span className='icon'>{icon}</span>}
       <input
         ref={refference}
-        title={title}
-        placeholder={placeholder}
         id={id}
-        name={name}
         type={type}
         value={value}
-        checked={checked}
-        minLength={minLength}
-        max={max}
         onChange={onChange}
-        required={required}
+        {...props}
       />
       {label && (
         <label htmlFor={id} ref={labelRef}>

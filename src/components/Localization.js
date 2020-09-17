@@ -1,3 +1,5 @@
+// This file is exist for further localization purposes but not yet used in the project
+
 import React, { useContext, useEffect } from "react"
 
 import LocalContext from "../contexts/LocalContext"
