@@ -119,6 +119,8 @@ function DataTable() {
     <Button
       innerText={buttons[local.local].delete}
       onClick={(e) => deleteRecords(e)}
+      data-type='main'
+      data-color='danger'
     />
   );
 
@@ -150,10 +152,16 @@ function DataTable() {
               innerText={buttons[buttonsLocal.local].delete}
               onClick={(e) => modalHandler(e, 'delete')}
               disabled={Object.keys(selectedRows).length === 0 ? true : false}
+              data-label='delete'
+              data-type='outline'
+              data-color='danger'
             />
             <Button
               onClick={(e) => modalHandler(e, 'add')}
               innerText={buttons[buttonsLocal.local].add}
+              data-label='add'
+              data-type='main'
+              data-color='primary'
             />
           </div>
         </div>

@@ -209,6 +209,8 @@ function AddNewRecord() {
     <Button
       innerText={buttons[local.local].save}
       onClick={(e) => hadleSubmit(e)}
+      data-type='main'
+      data-color='primary'
     />
   );
 

@@ -11,11 +11,38 @@
   flex: $flex;
 }
 
-@mixin unselectable {
+@mixin unselectable() {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+@mixin button-main($color, $color-text, $color-hover) {
+  background: $color;
+  color: $color-text;
+  &:hover {
+    background: $color-hover;
+  }
+}
+
+@mixin button-outline($color, $background) {
+  color: $color;
+  background-color: transparent;
+  border: 1px solid currentColor;
+  &:hover {
+    border: none;
+    background-color: $color;
+    color: $background;
+  }
+}
+
+@mixin button-text($color, $color-hover) {
+  background: transparent;
+  color: $color;
+  &:hover {
+    color: $color-hover;
+  }
 }

@@ -8,6 +8,7 @@ const hint = '#BDBDBD';
 const main_border = '#E1E1E1';
 const secondary_main = '#16C086';
 const error = '#df0000';
+const error_hover = '#df0000e0';
 const mask = 'rgba(0, 0, 0, 0.1)';
 const footer = '#f8f9fb';
 const link = '#5f6368';
@@ -22,6 +23,7 @@ export {
   main_border,
   secondary_main,
   error,
+  error_hover,
   mask,
   footer,
   link

@@ -23,7 +23,6 @@
 
 .top-bar .button-container button {
   margin-left: 1rem;
-  border-radius: 2rem;
 }
 
 @media (max-width: 767px) {
@@ -49,11 +48,11 @@
     border-radius: 0.25rem;
   }
 
-  .top-bar .button-container button:first-child {
+  .top-bar .button-container button[data-label='delete'] {
     margin-right: 0.5rem;
   }
 
-  .top-bar .button-container button:last-child {
+  .top-bar .button-container button[data-label='add'] {
     margin-left: 0.5rem;
   }
 }

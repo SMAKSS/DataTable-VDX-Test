@@ -45,6 +45,8 @@ function Modal({
               onClick={(e) => modalHandler(e)}
               innerText={buttons[local.local].close}
               data-label='close'
+              data-type='text'
+              data-color='primary'
             />
           </div>
         </div>
