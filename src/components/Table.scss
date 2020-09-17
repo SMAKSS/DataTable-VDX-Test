@@ -11,8 +11,11 @@ thead {
 
 thead th {
   @include unselectable();
-  cursor: pointer;
   min-width: 4rem;
+}
+
+thead th:not([data-name='id']) {
+  cursor: pointer;
 }
 
 tbody {

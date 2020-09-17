@@ -156,7 +156,7 @@ function DataTable() {
   );
 
   /**
-   * If accessing to firebase database face a problem 
+   * If accessing to firebase database face a problem
    * or being in progress the loading spinner will replace the main page.
    */
   if (state.loading) {

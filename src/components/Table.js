@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import SelectRowContext from '../contexts/SelectRowContext';
 import UUID from '../utils/UUID';
@@ -16,7 +16,7 @@ import './Table.scss';
  */
 function Table({ headers = [], rows = [], message = 'No Record' }) {
   const { local } = Locale(titles);
-  const [state, setState] = useState({ check: false, rows: rows, odd: false });
+  const [state, setState] = useState({ check: false, rows: [], odd: false });
   const [selectedRows, setSelectedRows] = useContext(SelectRowContext);
 
   /**
@@ -91,6 +91,14 @@ function Table({ headers = [], rows = [], message = 'No Record' }) {
     }
   }
 
+  /**
+   * This useEffect responsible for keeping the state.rows updated
+   * whenever new data come from the parent.
+   */
+  useEffect(() => {
+    setState((prev) => ({ ...prev, rows: rows }));
+  }, [rows]);
+
   return (
     <table>
       <thead>
@@ -125,14 +133,14 @@ function Table({ headers = [], rows = [], message = 'No Record' }) {
         </tr>
       </thead>
       <tbody>
-        {state.rows.length === 0 ? (
+        {rows.length === 0 ? (
           <tr>
             <td className='empty unselectable' colSpan={headers.length}>
               {message}
             </td>
           </tr>
         ) : (
-          state.rows.map((row, index) => (
+          rows.map((row, index) => (
             <tr key={UUID()}>
               <td>
                 <div className='no-cell'>

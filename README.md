@@ -11,7 +11,12 @@ I just implement the following features for this data table in this project.
 - You can filter and search the whole table with the available search input in the main page
 - You can sort data both ascending and descending by clicking each column (The odd clicks will sort ascending and even ones will sort it descending)
 
+## Here are some screenshots
+
+<img src="public/screenShots/Table.png" width="150"/>  <img src="public/screenShots/Add.png" width="150"/> <img src="public/screenShots/Search.png" width="150"/>  <img src="public/screenShots/Delete.png" width="150"/> <img src="public/screenShots/Sort.png" width="150"/>
+
 ----
+
 
 ## Available Scripts
 
